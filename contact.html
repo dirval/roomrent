@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content="width-device-width, initial-scale=1.0">
+    <title>Room Rent Application</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/custom.css">
+    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/1.0.0/firebaseui.css" />
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.7.3/firebase.js"></script>
+    <script type="text/javascript" src='js/firebase.js'></script>
+    <script src="https://cdn.firebase.com/libs/firebaseui/1.0.0/firebaseui.js"></script>
+    <script type="text/javascript" src="js/auth.js"></script>
+    
+</head>
+
+<body onload="init()">
+
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <div id="username" class="nav navbar-nav navbar-left"></div>
+      <ul class="nav navbar-nav navbar-right" id="barmenu">
+        <li><a href="index.html">HOME</a></li>
+        <li><a href="about.html">ABOUT</a></li>
+        <li><a href="message.html">CONTACT</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="jumbotron text-center">
+  <h1><img src="img/logo.png">RoomRentApp</h1>
+</div>
+<!-- first -->
+
+
+<div class="cotainer_content">
+
+				<div class="main-login main-center">
+                    <div class="panel-title text-center">
+	               		<h3 class="title">Contact form</h3>
+	               	</div>
+
+					<form class="form-horizontal" method="post" action="#">
+
+				        <div class="form-group">
+							<label for="username" class="cols-sm-2 control-label">Subject</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span>
+									<input type="text" class="form-control" name="username" id="subject"  placeholder="Subject"/>
+								</div>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="password" class="cols-sm-2 control-label">Body</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+									<textarea class="resizedtextbox" id="bodyMessage" placeholder="write text"></textarea> 
+								</div>
+							</div>
+						</div>
+
+						<div class="form-group ">
+							<button type="button" class="btn btn-primary btn-lg btn-block login-button" onclick="addmessage()">Send</button>
+						</div>
+					</form>
+				</div>
+
+</div>
+
+<!--footer-->
+<div class="container footerposition">
+       <footer class="container-fluid text-center"> 
+           <nav class="navbar navbar-default navbar-bottom"> 
+        
+
+            <!--Social buttons-->
+                <div class="social-section text-center" >
+                    <div class="btn-group-sm ">
+                        <h4>FOLLOW US:<br>
+                            <a href="https://www.facebook.com/"><img src="img/facebook.gif"></a>
+                            <a href="https://twitter.com/"> <img src="img/twitter.gif"></a>
+                        </h4>
+                    </div>
+                </div>
+            <!--/.Social buttons-->
+
+            <!--Copyright-->
+                <div class="footer-copyright text-center">
+                    <div class="container-fluid">
+                        <h3> © 2017 Copyright: <a href="#"> RoomRentApplication.com </a> </h3>
+
+                    </div>
+                </div>
+            <!--/.Copyright-->
+        </nav>
+    </footer>
+</div>
+
+    <script type="text/javascript" src="js/load.js"></script>
+</body>
+</html>
