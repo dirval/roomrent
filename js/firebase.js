@@ -327,3 +327,56 @@ function sendnewMessage(){
     alert("Your body message is empty!");
   }
 }
+
+function searchcity(){
+  //get element
+  var display = document.getElementById('containerRent');
+  var search = document.getElementById('search').value;
+  dbRefrent = firebase.database().ref().child('posts');
+  var count = Object.keys(dbRefrent).length;
+  var found = false;
+  var a = [];
+  dbRefrent.once('value', function(snap){
+    snap.forEach(function(childsnap){
+      var childkey = childsnap.key;
+      var childdata = childsnap.val();
+      childdata.idrent = childkey;
+      if (childdata.location.city == search) {
+        a.push(childdata);
+        found = true;
+      }
+    });
+    if (found) {
+    display.innerHTML = "";
+    a.forEach(function(element){
+      display.innerHTML = 
+      `<div class="row well">
+        <div class="row-justify-content-start">
+            <div class="col-sm-6" >
+                <a href="ad1.html">
+                <img src="`+element.pictures.img1+`" class="img-rounded"> 
+                </a>
+                <br>
+            </div>
+
+            <div class="col-sm-6" >
+                <h1>`+ element.title + ` ` + element.price+`€/kk</h1>
+                
+                <h3>Address:`+element.location.street+`, `+element.location.postalcode+`-`+element.location.city+`, Finland</h3>
+                <div class="btn-group btn-group-lg">
+                <form method='GET' action="ad1.html">
+                  <input type="hidden" name="userRent" value="`+element.idrent+`" id="iduserRent" />
+                  <input class="btn btn-primary" type="submit" value="Read More" />
+                </form>
+                </div>
+                <br>
+            </div>
+        </div>
+    </div>`;
+    });
+    }
+    else{
+      alert("sorry no rent at this city was found");
+    }
+  });
+}
