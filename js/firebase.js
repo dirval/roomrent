@@ -48,11 +48,12 @@ function addNewPost(){
   var city = document.getElementById('city').value;
   var description = document.getElementById('description').value;
   var price = document.getElementById('price').value;
+  var title = document.getElementById('title').value;
   files.push(file1);
   files.push(file2);
   files.push(file3);
 
-  if (file1 != null && file2 != null && file3 != null && street != "" && city != "" && postalcode != "" && description != "" && price != "") {
+  if (file1 != null && file2 != null && file3 != null && title != "" && street != "" && city != "" && postalcode != "" && description != "" && price != "") {
   // upload all picture and get url in urlfile[]
   files.forEach(function(myfile){
   var fileUploded = storageRef.child("images/" + myfile.files[0].name).put(myfile.files[0]);
@@ -98,6 +99,7 @@ function addNewPost(){
     description: description,
     user: userinfo.displayName,
     iduser: userinfo.uid,
+    title: title,
     price: price 
   });
   dbRefRent.child('posts/' + newKeyRent + '/location').update({
@@ -140,7 +142,7 @@ function loadData(){
             </div>
 
             <div class="col-sm-6" >
-                <h1>Rent an apartment close to seabeach for `+element.price+`€/kk</h1>
+                <h1>`+ element.title +element.price+`€/kk</h1>
                 
                 <h3>Address:`+element.location.street+`, `+element.location.postalcode+`-`+element.location.city+`, Finland</h3>
                 <div class="btn-group btn-group-lg">
