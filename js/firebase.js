@@ -142,7 +142,7 @@ function loadData(){
             </div>
 
             <div class="col-sm-6" >
-                <h1>`+ element.title +element.price+`€/kk</h1>
+                <h1>`+ element.title + ` ` + element.price+`€/kk</h1>
                 
                 <h3>Address:`+element.location.street+`, `+element.location.postalcode+`-`+element.location.city+`, Finland</h3>
                 <div class="btn-group btn-group-lg">
@@ -187,7 +187,7 @@ function loadDataRent(){
       img1.innerHTML += '<img src="'+element.pictures.img1+'" class="img-rounded" height="350" width="350">';
       img2.innerHTML += '<img src="'+element.pictures.img2+'" class="img-rounded" height="350" width="350">';
       img3.innerHTML += '<img src="'+element.pictures.img3+'" class="img-rounded" height="350" width="350">';
-      rentInfo.innerHTML += `<h2>Rent an apartment close to seabeach for `+element.price+`€/kk.</h2>
+      rentInfo.innerHTML += `<h2>`+ element.title +` `+element.price+`€/kk.</h2>
                 
                 <p>  
                 `+element.description+`
